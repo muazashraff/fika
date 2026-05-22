@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/c/Users/muaza/OneDrive/Documents/**)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-eslint --no-src-dir --import-alias \"@/*\" --yes)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(npm run *)"
+    ]
+  }
+}
