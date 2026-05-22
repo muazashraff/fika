@@ -3,22 +3,13 @@
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center grain-overlay bg-navy">
       {/* TODO: Replace with <video> hero.mp4 autoPlay muted loop */}
-      {/* TODO: Replace with real photography */}
-      <Image
-        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1920&q=80"
-        alt="Skylight Lounge"
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-navy/60" aria-hidden="true" />
+      {/* TODO: Replace with <video> hero.mp4 autoPlay muted loop */}
+      <div className="absolute inset-0 bg-navy" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-32 text-center">
         <motion.h1
