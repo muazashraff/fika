@@ -9,8 +9,9 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center grain-overlay bg-navy">
       {/* TODO: Replace with <video> hero.mp4 autoPlay muted loop */}
+      {/* TODO: Replace with real photography */}
       <Image
-        src="/images/hero.jpg"
+        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1920&q=80"
         alt="Skylight Lounge"
         fill
         priority
