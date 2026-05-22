@@ -4,7 +4,14 @@
       "Read(//mnt/c/Users/muaza/OneDrive/Documents/**)",
       "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-eslint --no-src-dir --import-alias \"@/*\" --yes)",
       "PowerShell(Remove-Item *)",
-      "PowerShell(npm run *)"
+      "PowerShell(npm run *)",
+      "PowerShell(git commit *)",
+      "PowerShell(git branch *)",
+      "PowerShell(git remote *)",
+      "PowerShell(git config *)",
+      "PowerShell(git push *)",
+      "PowerShell(npx vercel --version 2>&1)",
+      "PowerShell(git *)"
     ]
   }
 }
