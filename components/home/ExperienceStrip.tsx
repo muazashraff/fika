@@ -1,5 +1,6 @@
 "use client";
 
+import NavyBg from "@/components/ui/NavyBg";
 import SectionReveal from "@/components/ui/SectionReveal";
 import {
   BookOpen,
@@ -23,8 +24,9 @@ const experiences = [
 
 export default function ExperienceStrip() {
   return (
-    <SectionReveal className="grain-overlay bg-navy py-16">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <SectionReveal className="relative overflow-hidden py-16">
+      <NavyBg />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-7 md:overflow-visible">
           {experiences.map(({ icon: Icon, label }) => (
             <div

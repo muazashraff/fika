@@ -3,13 +3,22 @@
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center grain-overlay bg-navy">
-      {/* TODO: Replace with <video> hero.mp4 autoPlay muted loop */}
-      {/* TODO: Replace with <video> hero.mp4 autoPlay muted loop */}
-      <div className="absolute inset-0 bg-navy" aria-hidden="true" />
+      {/* Background image */}
+      <Image
+        src="/images/Background%202.PNG"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+        aria-hidden="true"
+      />
+      {/* Navy overlay at 50% opacity for text readability */}
+      <div className="absolute inset-0 bg-navy/60" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-32 text-center">
         <motion.h1

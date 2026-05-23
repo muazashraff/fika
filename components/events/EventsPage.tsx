@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import NavyBg from "@/components/ui/NavyBg";
 import { Event } from "@/data/events";
 import {
   EventFilter,
@@ -37,8 +38,9 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="grain-overlay bg-navy pb-20">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <section className="relative overflow-hidden pb-20 pt-12">
+        <NavyBg />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {filters.map((f) => (
               <button
@@ -100,9 +102,14 @@ function EventCard({ event, muted }: { event: Event; muted: boolean }) {
         <span className="mt-2 inline-block rounded bg-gold/20 px-2 py-0.5 font-sans text-xs font-semibold text-gold">
           {event.cost}
         </span>
+        {event.description && (
+          <p className="mt-3 font-lora text-sm text-cream/80">{event.description}</p>
+        )}
         <div className="mt-4">
           <Button href={event.externalLink} external variant="filled" className="!text-xs">
-            Register / Info
+            {event.registrationRequired === false && event.cost.toLowerCase() === "free"
+              ? "Free · Just Turn Up"
+              : "Register / Info"}
           </Button>
         </div>
       </div>

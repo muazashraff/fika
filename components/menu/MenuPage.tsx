@@ -1,6 +1,7 @@
 "use client";
 
 import BotanicalDivider from "@/components/ui/BotanicalDivider";
+import NavyBg from "@/components/ui/NavyBg";
 import { drinks, Drink } from "@/data/drinks";
 import { foodItems, FoodItem } from "@/data/food";
 import { useState } from "react";
@@ -32,10 +33,13 @@ export default function MenuPage() {
 
   return (
     <>
-      <section className="grain-overlay bg-navy py-24 pt-32">
-        <h1 className="text-center font-playfair text-5xl text-gold md:text-6xl">
-          Our Menu
-        </h1>
+      <section className="relative overflow-hidden py-24 pt-32">
+        <NavyBg />
+        <div className="relative z-10">
+          <h1 className="text-center font-playfair text-5xl text-gold md:text-6xl">
+            Our Menu
+          </h1>
+        </div>
       </section>
 
       <section className="bg-cream py-12">

@@ -4,6 +4,8 @@ export interface Event {
   date: string;
   time: string;
   cost: string;
+  registrationRequired?: boolean;
+  description?: string;
   posterImage?: string;
   externalLink: string;
 }
@@ -11,12 +13,14 @@ export interface Event {
 export const events: Event[] = [
   {
     id: 1,
-    title: "Games Night",
-    date: "2026-06-20",
-    time: "7:00 PM",
+    title: "Chaand Raat at Skylight",
+    date: "2026-05-25",
+    time: "6:30 PM onwards",
     cost: "Free",
-    posterImage:
-      "https://images.unsplash.com/photo-1611892440504-42a784e683d9?w=800&q=80",
+    registrationRequired: false,
+    description:
+      "A relaxed Chaand Raat with Qawwalis in the background, coffee, matcha, food and desserts. Featuring local vendors — skincare, canvas art, mehndi artists, and artisan dates.",
+    posterImage: "/images/Event1.jpg",
     externalLink: "#",
   },
   {

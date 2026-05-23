@@ -1,4 +1,5 @@
 import BotanicalDivider from "@/components/ui/BotanicalDivider";
+import NavyBg from "@/components/ui/NavyBg";
 import SectionReveal from "@/components/ui/SectionReveal";
 import { Globe, Handshake, Palette, Users } from "lucide-react";
 import Image from "next/image";
@@ -7,15 +8,6 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
 };
-
-const spacePhotos = [
-  { src: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&q=80", caption: "Dual-Screen Workstations" },
-  { src: "https://images.unsplash.com/photo-1431540015166-0a8b1a38d001?w=600&q=80", caption: "Private Meeting Pod" },
-  { src: "https://images.unsplash.com/photo-1481627834876-d7830168f557?w=600&q=80", caption: "Cosy Reading Corners" },
-  { src: "https://images.unsplash.com/photo-1460667736837-4a1f2a6f9480?w=600&q=80", caption: "Rotating Gallery Wall" },
-  { src: "https://images.unsplash.com/photo-1611892440504-42a784e683d9?w=600&q=80", caption: "Board Games Collection" },
-  { src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80", caption: "Specialty Coffee Bar" },
-];
 
 const values = [
   { icon: Users, title: "People First", emoji: "👥" },
@@ -51,8 +43,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionReveal className="grain-overlay bg-navy py-20">
-        <div className="mx-auto max-w-3xl px-4 md:px-8">
+      <SectionReveal className="relative overflow-hidden py-20">
+        <NavyBg />
+        <div className="relative z-10 mx-auto max-w-3xl px-4 md:px-8">
           <h2 className="border-l-4 border-gold pl-4 font-playfair text-2xl text-gold">
             Our Story
           </h2>
@@ -86,34 +79,13 @@ export default function AboutPage() {
 
       <SectionReveal className="bg-cream py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <h2 className="heading-underline text-center font-playfair text-3xl text-navy">
-            The Space
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {spacePhotos.map((photo) => (
-              <figure key={photo.caption} className="group">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                  {/* TODO: Replace with real photography */}
-                  <Image src={photo.src} alt={photo.caption} fill className="object-cover transition-transform group-hover:scale-105" sizes="400px" />
-                </div>
-                <figcaption className="mt-2 text-center font-sans text-sm text-navy">
-                  {photo.caption}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </SectionReveal>
-
-      <SectionReveal className="grain-overlay bg-navy py-20">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <h2 className="mb-12 text-center font-playfair text-3xl text-gold">Our Values</h2>
+          <h2 className="mb-12 text-center font-playfair text-3xl text-navy">Our Values</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <div key={v.title} className="rounded-lg border border-gold/20 bg-navy p-6 text-center">
+              <div key={v.title} className="rounded-lg border border-gold/30 bg-white p-6 text-center">
                 <span className="text-2xl" aria-hidden="true">{v.emoji}</span>
                 <v.icon className="mx-auto mt-3 text-gold" size={28} />
-                <h3 className="mt-4 font-sans font-semibold text-cream">{v.title}</h3>
+                <h3 className="mt-4 font-sans font-semibold text-navy">{v.title}</h3>
               </div>
             ))}
           </div>

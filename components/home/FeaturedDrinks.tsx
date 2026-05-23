@@ -1,4 +1,5 @@
 import BotanicalDivider from "@/components/ui/BotanicalDivider";
+import NavyBg from "@/components/ui/NavyBg";
 import SectionReveal from "@/components/ui/SectionReveal";
 import { drinks } from "@/data/drinks";
 import Link from "next/link";
@@ -7,8 +8,9 @@ export default function FeaturedDrinks() {
   const featured = drinks.filter((d) => d.featured);
 
   return (
-    <SectionReveal className="grain-overlay bg-navy py-20">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <SectionReveal className="relative overflow-hidden py-20">
+      <NavyBg />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <h2 className="heading-underline text-center font-playfair text-3xl text-gold md:text-4xl">
           What&apos;s new at Skylight
         </h2>

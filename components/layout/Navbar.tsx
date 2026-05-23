@@ -2,7 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -64,7 +64,14 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-3 lg:flex">
+            <a
+              href="tel:01274200728"
+              className="flex items-center gap-1.5 rounded-sm border border-gold px-5 py-2.5 font-sans text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+            >
+              <Phone size={13} />
+              Call Us
+            </a>
             <Button href="/book" variant="filled" className="!py-2.5 !px-5 text-xs">
               Book a Table
             </Button>
@@ -115,6 +122,20 @@ export default function Navbar() {
                 <Button href="/book" onClick={() => setMobileOpen(false)}>
                   Book a Table
                 </Button>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.08 * (navLinks.length + 1) }}
+              >
+                <a
+                  href="tel:01274200728"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 font-playfair text-2xl text-text-light hover:text-gold"
+                >
+                  <Phone size={22} />
+                  Call Us
+                </a>
               </motion.li>
             </ul>
           </motion.div>

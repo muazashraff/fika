@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "var(--navy)",
-        gold: "var(--gold)",
-        brown: "var(--brown)",
-        cream: "var(--cream)",
-        "text-light": "var(--text-light)",
-        "text-dark": "var(--text-dark)",
+        navy: "rgb(var(--navy) / <alpha-value>)",
+        gold: "rgb(var(--gold) / <alpha-value>)",
+        brown: "rgb(var(--brown) / <alpha-value>)",
+        cream: "rgb(var(--cream) / <alpha-value>)",
+        "text-light": "rgb(var(--text-light) / <alpha-value>)",
+        "text-dark": "rgb(var(--text-dark) / <alpha-value>)",
       },
       fontFamily: {
         playfair: ["var(--font-playfair)", "serif"],

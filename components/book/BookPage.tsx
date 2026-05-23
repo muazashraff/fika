@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import NavyBg from "@/components/ui/NavyBg";
 import { FormError, FormSuccess } from "@/components/forms/FormFeedback";
 import { sendEmail } from "@/lib/emailjs";
 import { AnimatePresence, motion } from "framer-motion";
@@ -26,11 +27,14 @@ export default function BookPage() {
 
   return (
     <>
-      <section className="grain-overlay bg-navy py-24 pt-32">
-        <h1 className="text-center font-playfair text-5xl text-gold">Book</h1>
-        <p className="mx-auto mt-4 max-w-xl px-4 text-center font-lora text-cream/80">
-          Reserve your table, workspace, or enquire about private hire.
-        </p>
+      <section className="relative overflow-hidden py-24 pt-32">
+        <NavyBg />
+        <div className="relative z-10">
+          <h1 className="text-center font-playfair text-5xl text-gold">Book</h1>
+          <p className="mx-auto mt-4 max-w-xl px-4 text-center font-lora text-cream/80">
+            Reserve your table, workspace, or enquire about private hire.
+          </p>
+        </div>
       </section>
 
       <section className="bg-cream py-16 pb-24">

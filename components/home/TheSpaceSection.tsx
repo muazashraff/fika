@@ -1,11 +1,13 @@
 import Button from "@/components/ui/Button";
+import NavyBg from "@/components/ui/NavyBg";
 import SectionReveal from "@/components/ui/SectionReveal";
 import Image from "next/image";
 
 export default function TheSpaceSection() {
   return (
-    <SectionReveal className="grain-overlay bg-navy py-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:px-8">
+    <SectionReveal className="relative overflow-hidden py-20">
+      <NavyBg />
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:px-8">
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
           {/* TODO: Replace with real photography */}
           <Image

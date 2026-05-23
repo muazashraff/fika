@@ -5,7 +5,6 @@ import ExperienceStrip from "@/components/home/ExperienceStrip";
 import FeaturedDrinks from "@/components/home/FeaturedDrinks";
 import GoogleRatingBadge from "@/components/home/GoogleRatingBadge";
 import Hero from "@/components/home/Hero";
-import InstagramFeed from "@/components/home/InstagramFeed";
 import TheSpaceSection from "@/components/home/TheSpaceSection";
 
 export default function HomePage() {
@@ -20,7 +19,6 @@ export default function HomePage() {
       <FeaturedDrinks />
       <EventsPreview />
       <TheSpaceSection />
-      <InstagramFeed />
     </>
   );
 }

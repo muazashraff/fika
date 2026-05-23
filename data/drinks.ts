@@ -248,9 +248,17 @@ export const drinks: Drink[] = [
   {
     id: 29,
     name: "Protein Shake",
-    description: "Dreamy blend of coffee, milk, & ice",
+    description: "High-protein blend — ask us about today's flavours",
     price: "£5.6 / £5.95",
     category: "other",
     tags: ["strong", "iced"],
   },
+
+  // ── EXTRAS / ADD-ONS ─────────────────────────────────────────────────────
+  { id: 30, name: "Syrups", description: "Choice of flavoured syrup", price: "+£0.40", category: "extras" },
+  { id: 31, name: "Sauces / Drizzles", description: "Chocolate, caramel & more", price: "+£0.40", category: "extras" },
+  { id: 32, name: "Whipped Cream", description: "", price: "+£0.50", category: "extras" },
+  { id: 33, name: "Coldfoam", description: "Velvety cold foam on top", price: "+£0.60", category: "extras" },
+  { id: 34, name: "Marshmallows", description: "", price: "+£0.20", category: "extras" },
+  { id: 35, name: "Make it Iced", description: "Most drinks can be made iced", price: "+£0.50", category: "extras" },
 ];

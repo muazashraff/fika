@@ -33,7 +33,9 @@ export default function EventsPreview() {
                 </p>
                 <p className="mt-2 font-sans text-sm font-semibold text-gold">{event.cost}</p>
                 <Button href={event.externalLink} external variant="filled" className="mt-4 w-full !text-xs">
-                  Register
+                  {event.registrationRequired === false && event.cost.toLowerCase() === "free"
+                    ? "Free · Just Turn Up"
+                    : "Register"}
                 </Button>
               </div>
             </article>

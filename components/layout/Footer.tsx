@@ -1,3 +1,4 @@
+import NavyBg from "@/components/ui/NavyBg";
 import { businessInfo } from "@/data/info";
 import { Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
@@ -22,9 +23,10 @@ function TikTokIcon({ className }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="grain-overlay bg-navy text-text-light">
-      <div className="relative mx-auto max-w-7xl px-4 py-16 md:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative overflow-hidden text-text-light">
+      <NavyBg />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 md:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <Link href="/" className="font-playfair text-xl tracking-widest">
               <span className="text-gold">SKYLIGHT</span> LOUNGE
@@ -50,6 +52,21 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div>
+            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-gold">Opening Hours</h3>
+            <div className="mt-4 space-y-2 font-lora text-sm text-cream/90">
+              <div>
+                <p className="font-semibold text-cream">Mon – Fri</p>
+                <p>9:00am – 6:00pm</p>
+                <p className="text-cream/70 text-xs">Brunch till 4pm</p>
+              </div>
+              <div className="pt-1">
+                <p className="font-semibold text-cream">Sat – Sun</p>
+                <p>9:30am – 7:00pm</p>
+                <p className="text-cream/70 text-xs">Brunch till 5pm</p>
+              </div>
+            </div>
           </div>
           <div>
             <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-gold">Follow</h3>

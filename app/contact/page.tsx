@@ -1,4 +1,5 @@
 import ContactForm from "@/components/forms/ContactForm";
+import NavyBg from "@/components/ui/NavyBg";
 import { businessInfo } from "@/data/info";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import type { Metadata } from "next";
@@ -10,8 +11,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="grain-overlay bg-navy py-24 pt-32">
-        <h1 className="text-center font-playfair text-5xl text-gold">Contact</h1>
+      <section className="relative overflow-hidden py-24 pt-32">
+        <NavyBg />
+        <div className="relative z-10">
+          <h1 className="text-center font-playfair text-5xl text-gold">Contact</h1>
+        </div>
       </section>
 
       <section className="bg-cream py-16 pb-24">
