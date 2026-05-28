@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center grain-overlay bg-navy">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden grain-overlay bg-navy">
       {/* Background image */}
       <Image
         src="/images/Background%202.PNG"
@@ -15,6 +15,7 @@ export default function Hero() {
         fill
         className="object-cover"
         priority
+        sizes="100vw"
         aria-hidden="true"
       />
       {/* Navy overlay at 50% opacity for text readability */}
