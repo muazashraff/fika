@@ -1,8 +1,11 @@
 import NavyBg from "@/components/ui/NavyBg";
 import SectionReveal from "@/components/ui/SectionReveal";
+import BotanicalDivider from "@/components/ui/BotanicalDivider";
 import { currentArtist } from "@/data/artist";
-import { Instagram } from "lucide-react";
+import { businessInfo } from "@/data/info";
+import { Camera, Instagram } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,6 +53,40 @@ export default function GalleryPage() {
           </div>
         </div>
       </SectionReveal>
+
+      {/* Share CTA — keeps the blue/white alternating pattern */}
+      <section className="bg-cream py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center md:px-8">
+          <Camera size={32} className="mx-auto text-gold" strokeWidth={1.5} />
+          <h2 className="mt-4 font-playfair text-3xl text-navy md:text-4xl">
+            Share your Skylight moment
+          </h2>
+          <BotanicalDivider className="py-4" />
+          <p className="font-lora text-lg text-brown">
+            Every visit tells a story. Tag us on Instagram and your photo could
+            be featured right here — or even on our gallery wall.
+          </p>
+
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href={businessInfo.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 font-sans text-sm font-semibold text-cream transition-colors hover:bg-navy/80"
+            >
+              <Instagram size={18} />
+              Follow @the.skylight.lounge
+            </Link>
+            <span className="font-sans text-sm text-brown/60">
+              Use <span className="font-semibold text-gold">#SkylightLounge</span> to be featured
+            </span>
+          </div>
+
+          <p className="mt-10 font-lora text-sm italic text-brown/60">
+            Our gallery wall rotates every few weeks — local artists welcome to apply via the contact page.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

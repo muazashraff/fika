@@ -6,6 +6,7 @@ import FeaturedDrinks from "@/components/home/FeaturedDrinks";
 import GoogleRatingBadge from "@/components/home/GoogleRatingBadge";
 import Hero from "@/components/home/Hero";
 import TheSpaceSection from "@/components/home/TheSpaceSection";
+import VisitSection from "@/components/home/VisitSection";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       <FeaturedDrinks />
       <EventsPreview />
       <TheSpaceSection />
+      <VisitSection />
     </>
   );
 }

@@ -2,12 +2,14 @@
 
 import Button from "@/components/ui/Button";
 import NavyBg from "@/components/ui/NavyBg";
+import BotanicalDivider from "@/components/ui/BotanicalDivider";
 import { Event } from "@/data/events";
 import {
   EventFilter,
   filterEvents,
   formatEventDate,
 } from "@/lib/events";
+import { Cake, Mic2, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -69,6 +71,60 @@ export default function EventsPage() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Private events CTA — keeps the blue/white alternating pattern */}
+      <section className="bg-cream py-20">
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <div className="text-center">
+            <p className="font-sans text-xs uppercase tracking-widest text-gold">
+              Private Hire
+            </p>
+            <h2 className="mt-3 font-playfair text-3xl text-navy md:text-4xl">
+              Host your own event here
+            </h2>
+            <BotanicalDivider className="py-4" />
+            <p className="mx-auto mt-2 max-w-xl font-lora text-lg text-brown">
+              From birthdays to brand launches, Skylight Lounge is available for
+              private hire. Bring your vision — we&apos;ll handle the rest.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: Cake,
+                title: "Celebrations",
+                desc: "Birthdays, anniversaries, baby showers — intimate gatherings done beautifully.",
+              },
+              {
+                icon: Users,
+                title: "Corporate & Networking",
+                desc: "Team away-days, workshops, product launches, and community meetups.",
+              },
+              {
+                icon: Mic2,
+                title: "Creative Nights",
+                desc: "Open mics, poetry slams, art shows, film screenings — we love a creative takeover.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-gold/20 bg-white p-8 shadow-sm text-center"
+              >
+                <Icon size={28} className="mx-auto text-gold" strokeWidth={1.5} />
+                <h3 className="mt-4 font-playfair text-xl text-navy">{title}</h3>
+                <p className="mt-3 font-lora text-sm text-brown">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button href="/contact" variant="filled">
+              Enquire About Private Hire →
+            </Button>
+          </div>
         </div>
       </section>
     </>
