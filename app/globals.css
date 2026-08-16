@@ -3,12 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --navy: 27 42 74;
-  --gold: 201 168 76;
-  --brown: 107 66 38;
-  --cream: 245 239 230;
-  --text-light: 250 247 242;
-  --text-dark: 27 42 74;
+  --cream: 245 240 232;
+  --beige: 237 229 216;
+  --brown: 139 99 67;
+  --espresso: 44 26 14;
 }
 
 html {
@@ -16,7 +14,7 @@ html {
 }
 
 body {
-  @apply bg-cream font-lora text-text-dark antialiased;
+  @apply bg-cream font-sans text-espresso antialiased;
 }
 
 @layer utilities {
@@ -28,7 +26,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    opacity: 0.35;
+    opacity: 0.2;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
@@ -40,10 +38,10 @@ body {
 
   .heading-underline::after {
     content: "";
-    @apply absolute -bottom-2 left-0 h-0.5 w-full bg-gold;
+    @apply absolute -bottom-2 left-0 h-0.5 w-full bg-brown;
   }
 
-  .gold-glow {
-    box-shadow: 0 0 40px rgba(201, 168, 76, 0.35);
+  .warm-glow {
+    box-shadow: 0 0 40px rgba(139, 99, 67, 0.25);
   }
 }

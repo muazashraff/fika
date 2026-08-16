@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { DM_Sans, Lora, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { businessInfo } from "@/data/info";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  variable: "--font-lora",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -25,11 +20,11 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: `${businessInfo.name} | Bradford's Favourite Specialty Coffee Lounge`,
+    default: `${businessInfo.name} | Bradford's Most Beautiful Café`,
     template: `%s | ${businessInfo.name}`,
   },
   description:
-    "Great coffee. Great events. Greater people. Skylight Lounge — specialty coffee, co-working, events & community in Bradford, UK.",
+    "Fika Café Bradford — specialty coffee, matcha and bakes on Thornton Road.",
 };
 
 export default function RootLayout({
@@ -40,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${lora.variable} ${dmSans.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable}`}
     >
       <body className="min-h-screen flex flex-col">
         <Navbar />

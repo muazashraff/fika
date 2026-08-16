@@ -7,7 +7,7 @@ const PUBLIC_KEY = "your_public_key";
 const TEMPLATES = {
   contact: "your_contact_template_id",
   tableBooking: "your_table_booking_template_id",
-  privateHire: "your_private_hire_template_id",
+  privateHire: "your_group_booking_template_id",
 } as const;
 
 export type TemplateKey = keyof typeof TEMPLATES;

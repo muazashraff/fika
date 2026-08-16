@@ -7,10 +7,10 @@ type Variant = "filled" | "outline" | "ghost";
 
 const variants: Record<Variant, string> = {
   filled:
-    "bg-gold text-navy hover:scale-105 hover:shadow-[0_0_24px_rgba(201,168,76,0.45)] focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy",
+    "bg-brown text-cream hover:bg-espresso hover:scale-105 focus:ring-2 focus:ring-brown focus:ring-offset-2 focus:ring-offset-cream",
   outline:
-    "border-2 border-gold text-gold bg-transparent hover:bg-gold/10 hover:scale-105 focus:ring-2 focus:ring-gold",
-  ghost: "text-gold hover:text-cream underline-offset-4 hover:underline",
+    "border-2 border-brown text-brown bg-transparent hover:bg-brown/10 hover:scale-105 focus:ring-2 focus:ring-brown",
+  ghost: "text-brown hover:text-espresso underline-offset-4 hover:underline",
 };
 
 interface ButtonProps {

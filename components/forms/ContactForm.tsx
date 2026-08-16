@@ -6,7 +6,7 @@ import { Loader2 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
 const inputClass =
-  "w-full rounded border border-navy/20 bg-white px-4 py-3 font-sans text-sm text-navy focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
+  "w-full rounded border border-espresso/20 bg-white px-4 py-3 font-sans text-sm text-espresso focus:border-brown focus:outline-none focus:ring-1 focus:ring-brown";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
@@ -45,19 +45,19 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       {error && <FormError message={error} />}
       <div>
-        <label htmlFor="contact-name" className="mb-1 block font-sans text-sm text-navy">
+        <label htmlFor="contact-name" className="mb-1 block font-sans text-sm text-espresso">
           Name
         </label>
         <input id="contact-name" name="name" required className={inputClass} />
       </div>
       <div>
-        <label htmlFor="contact-email" className="mb-1 block font-sans text-sm text-navy">
+        <label htmlFor="contact-email" className="mb-1 block font-sans text-sm text-espresso">
           Email
         </label>
         <input id="contact-email" name="email" type="email" required className={inputClass} />
       </div>
       <div>
-        <label htmlFor="contact-message" className="mb-1 block font-sans text-sm text-navy">
+        <label htmlFor="contact-message" className="mb-1 block font-sans text-sm text-espresso">
           Message
         </label>
         <textarea id="contact-message" name="message" required rows={5} className={inputClass} />
@@ -65,7 +65,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-6 py-3 font-sans text-sm font-semibold text-navy transition hover:scale-[1.02] disabled:opacity-50"
+        className="inline-flex w-full items-center justify-center gap-2 rounded bg-brown px-6 py-3 font-sans text-sm font-semibold text-cream transition hover:scale-[1.02] hover:bg-espresso disabled:opacity-50"
       >
         {loading && <Loader2 className="animate-spin" size={18} />}
         Send Message

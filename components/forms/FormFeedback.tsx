@@ -2,7 +2,7 @@ export function FormSuccess({ message }: { message: string }) {
   return (
     <div
       role="status"
-      className="rounded border border-gold/50 bg-gold/10 px-4 py-3 font-sans text-sm text-gold"
+      className="rounded border border-brown/40 bg-brown/10 px-4 py-3 font-sans text-sm text-brown"
     >
       {message}
     </div>

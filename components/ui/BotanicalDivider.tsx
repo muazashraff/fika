@@ -3,7 +3,7 @@ export default function BotanicalDivider({ className = "" }: { className?: strin
     <div className={`flex justify-center py-8 ${className}`} aria-hidden="true">
       <svg
         viewBox="0 0 400 40"
-        className="h-10 w-full max-w-md text-gold"
+        className="h-10 w-full max-w-md text-brown"
         fill="none"
         stroke="currentColor"
         strokeWidth="1"

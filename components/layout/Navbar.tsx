@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import { businessInfo } from "@/data/info";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
@@ -9,9 +10,8 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
-  { href: "/events", label: "What's On" },
   { href: "/about", label: "About" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/contact", label: "Contact" },
   { href: "/book", label: "Book" },
 ];
 
@@ -38,7 +38,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled || mobileOpen
-            ? "bg-navy/95 shadow-lg backdrop-blur-sm"
+            ? "bg-cream/95 shadow-sm backdrop-blur-sm"
             : "bg-transparent"
         }`}
       >
@@ -46,9 +46,9 @@ export default function Navbar() {
           className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8"
           aria-label="Main navigation"
         >
-          <Link href="/" className="font-playfair text-lg tracking-widest md:text-xl">
-            <span className="text-gold">SKYLIGHT</span>{" "}
-            <span className="text-text-light">LOUNGE</span>
+          <Link href="/" className="font-cormorant text-2xl tracking-widest md:text-3xl">
+            <span className="text-brown">FIKA</span>{" "}
+            <span className="text-espresso">CAFÉ</span>
           </Link>
 
           <ul className="hidden items-center gap-8 lg:flex">
@@ -56,7 +56,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="font-sans text-sm text-text-light/90 transition-colors hover:text-gold"
+                  className="font-sans text-sm text-espresso/80 transition-colors hover:text-brown"
                 >
                   {link.label}
                 </Link>
@@ -66,8 +66,8 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="tel:01274200728"
-              className="flex items-center gap-1.5 rounded-sm border border-gold px-5 py-2.5 font-sans text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+              href={`tel:${businessInfo.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-1.5 rounded-sm border border-brown px-5 py-2.5 font-sans text-xs font-semibold text-brown transition-colors hover:bg-brown/10"
             >
               <Phone size={13} />
               Call Us
@@ -79,7 +79,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="text-gold lg:hidden"
+            className="text-brown lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -95,7 +95,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-navy lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-cream lg:hidden"
           >
             <ul className="flex flex-col items-center gap-8">
               {navLinks.map((link, i) => (
@@ -108,7 +108,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="font-playfair text-2xl text-text-light hover:text-gold"
+                    className="font-cormorant text-3xl text-espresso hover:text-brown"
                   >
                     {link.label}
                   </Link>
@@ -129,9 +129,9 @@ export default function Navbar() {
                 transition={{ delay: 0.08 * (navLinks.length + 1) }}
               >
                 <a
-                  href="tel:01274200728"
+                  href={`tel:${businessInfo.phone.replace(/\s/g, "")}`}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 font-playfair text-2xl text-text-light hover:text-gold"
+                  className="flex items-center gap-2 font-cormorant text-2xl text-espresso hover:text-brown"
                 >
                   <Phone size={22} />
                   Call Us

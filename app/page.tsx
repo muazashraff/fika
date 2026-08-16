@@ -1,10 +1,10 @@
 import BotanicalDivider from "@/components/ui/BotanicalDivider";
-import CoffeeQuiz from "@/components/home/CoffeeQuiz";
-import EventsPreview from "@/components/home/EventsPreview";
 import ExperienceStrip from "@/components/home/ExperienceStrip";
 import FeaturedDrinks from "@/components/home/FeaturedDrinks";
+import FikaRitual from "@/components/home/FikaRitual";
 import GoogleRatingBadge from "@/components/home/GoogleRatingBadge";
 import Hero from "@/components/home/Hero";
+import InstagramFeed from "@/components/home/InstagramFeed";
 import TheSpaceSection from "@/components/home/TheSpaceSection";
 import VisitSection from "@/components/home/VisitSection";
 
@@ -15,11 +15,10 @@ export default function HomePage() {
       <GoogleRatingBadge />
       <BotanicalDivider />
       <ExperienceStrip />
-      <BotanicalDivider />
-      <CoffeeQuiz />
+      <FikaRitual />
       <FeaturedDrinks />
-      <EventsPreview />
       <TheSpaceSection />
+      <InstagramFeed />
       <VisitSection />
     </>
   );

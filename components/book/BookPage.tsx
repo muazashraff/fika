@@ -1,38 +1,28 @@
 "use client";
 
-import Button from "@/components/ui/Button";
-import NavyBg from "@/components/ui/NavyBg";
 import { FormError, FormSuccess } from "@/components/forms/FormFeedback";
 import { sendEmail } from "@/lib/emailjs";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  Calendar,
-  Loader2,
-  LucideIcon,
-  PartyPopper,
-  Users,
-} from "lucide-react";
-import Link from "next/link";
+import { Calendar, Loader2, LucideIcon, Users } from "lucide-react";
 import { FormEvent, ReactNode, useState } from "react";
 
-type CardId = "table" | "hire" | "events" | null;
+type CardId = "table" | "group" | null;
 
 const inputClass =
-  "w-full rounded border border-gold/20 bg-navy/50 px-4 py-3 font-sans text-sm text-cream focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
+  "w-full rounded border border-brown/25 bg-cream px-4 py-3 font-sans text-sm text-espresso focus:border-brown focus:outline-none focus:ring-1 focus:ring-brown";
 
 export default function BookPage() {
-  const [openCard, setOpenCard] = useState<CardId>(null);
+  const [openCard, setOpenCard] = useState<CardId>("table");
 
   const toggle = (id: CardId) => setOpenCard(openCard === id ? null : id);
 
   return (
     <>
-      <section className="relative overflow-hidden py-24 pt-32">
-        <NavyBg />
+      <section className="bg-espresso py-24 pt-32">
         <div className="relative z-10">
-          <h1 className="text-center font-playfair text-5xl text-gold">Book</h1>
-          <p className="mx-auto mt-4 max-w-xl px-4 text-center font-lora text-cream/80">
-            Reserve your table, workspace, or enquire about private hire.
+          <h1 className="text-center font-cormorant text-5xl text-cream">Book a Table</h1>
+          <p className="mx-auto mt-4 max-w-xl px-4 text-center font-sans text-cream/70">
+            Reserve your table at Fika, or enquire about a group booking.
           </p>
         </div>
       </section>
@@ -41,8 +31,8 @@ export default function BookPage() {
         <div className="mx-auto max-w-3xl space-y-6 px-4 md:px-8">
           <BookCard
             icon={Calendar}
-            title="Book a Table or Workspace"
-            description="Reserve a table, workstation, or meeting pod."
+            title="Book a Table"
+            description="Reserve a table for your visit."
             open={openCard === "table"}
             onToggle={() => toggle("table")}
           >
@@ -51,27 +41,12 @@ export default function BookPage() {
 
           <BookCard
             icon={Users}
-            title="Private Hire Enquiry"
-            description="Birthdays, corporate events, networking & more."
-            open={openCard === "hire"}
-            onToggle={() => toggle("hire")}
+            title="Group Booking Enquiry"
+            description="Planning a larger visit? Let us know and we'll help you plan it."
+            open={openCard === "group"}
+            onToggle={() => toggle("group")}
           >
-            <PrivateHireForm />
-          </BookCard>
-
-          <BookCard
-            icon={PartyPopper}
-            title="Events"
-            description="Each event has its own sign-up link."
-            open={openCard === "events"}
-            onToggle={() => toggle("events")}
-          >
-            <p className="font-lora text-cream/80">
-              Each event has its own sign-up link — head to What&apos;s On to register.
-            </p>
-            <Link href="/events" className="mt-4 inline-block">
-              <Button variant="filled">See What&apos;s On →</Button>
-            </Link>
+            <GroupBookingForm />
           </BookCard>
         </div>
       </section>
@@ -95,17 +70,17 @@ function BookCard({
   children: ReactNode;
 }) {
   return (
-    <div className="overflow-hidden rounded-lg border border-gold/30 bg-navy shadow-lg">
+    <div className="overflow-hidden rounded-lg border border-brown/20 bg-beige shadow-sm">
       <button
         type="button"
         onClick={onToggle}
         className="flex w-full items-start gap-4 p-6 text-left"
         aria-expanded={open}
       >
-        <Icon className="mt-1 shrink-0 text-gold" size={28} />
+        <Icon className="mt-1 shrink-0 text-brown" size={28} />
         <div>
-          <h2 className="font-playfair text-xl text-gold">{title}</h2>
-          <p className="mt-1 font-lora text-sm text-cream/70">{description}</p>
+          <h2 className="font-cormorant text-xl text-espresso">{title}</h2>
+          <p className="mt-1 font-sans text-sm text-espresso/60">{description}</p>
         </div>
       </button>
       <AnimatePresence>
@@ -117,7 +92,7 @@ function BookCard({
             transition={{ duration: 0.35 }}
             className="overflow-hidden"
           >
-            <div className="border-t border-gold/20 px-6 pb-6 pt-2">{children}</div>
+            <div className="border-t border-brown/15 px-6 pb-6 pt-2">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -145,7 +120,6 @@ function TableBookingForm() {
         date: String(data.get("date") ?? ""),
         time: String(data.get("time") ?? ""),
         party_size: String(data.get("party_size") ?? ""),
-        preference: String(data.get("preference") ?? ""),
         notes: String(data.get("notes") ?? ""),
       });
       setSuccess(true);
@@ -169,16 +143,16 @@ function TableBookingForm() {
       <Field label="Phone" name="phone" />
       <Field label="Date *" name="date" type="date" required min={today} />
       <div>
-        <label className="mb-1 block font-sans text-sm text-cream">Time *</label>
+        <label className="mb-1 block font-sans text-sm text-espresso">Time *</label>
         <select name="time" required className={inputClass}>
           <option value="">Select...</option>
-          <option value="Morning 9–12">Morning 9–12</option>
-          <option value="Afternoon 12–5">Afternoon 12–5</option>
-          <option value="Evening 5–close">Evening 5–close</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
         </select>
       </div>
       <div>
-        <label className="mb-1 block font-sans text-sm text-cream">Party size *</label>
+        <label className="mb-1 block font-sans text-sm text-espresso">Party size *</label>
         <select name="party_size" required className={inputClass}>
           <option value="">Select...</option>
           <option value="1–2">1–2</option>
@@ -187,34 +161,25 @@ function TableBookingForm() {
         </select>
       </div>
       <div>
-        <label className="mb-1 block font-sans text-sm text-cream">Preference *</label>
-        <select name="preference" required className={inputClass}>
-          <option value="">Select...</option>
-          <option value="Table">Table</option>
-          <option value="Workstation">Workstation</option>
-          <option value="Meeting Pod">Meeting Pod</option>
-        </select>
-      </div>
-      <div>
-        <label className="mb-1 block font-sans text-sm text-cream">Notes</label>
+        <label className="mb-1 block font-sans text-sm text-espresso">Notes</label>
         <textarea name="notes" rows={3} className={inputClass} />
       </div>
       <button
         type="submit"
         disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-6 py-3 font-sans text-sm font-semibold text-navy disabled:opacity-50"
+        className="inline-flex w-full items-center justify-center gap-2 rounded bg-brown px-6 py-3 font-sans text-sm font-semibold text-cream hover:bg-espresso disabled:opacity-50"
       >
         {loading && <Loader2 className="animate-spin" size={18} />}
         Submit Booking
       </button>
-      <p className="font-lora text-xs text-cream/60">
-        Workspace is free with any drink purchase. We&apos;ll confirm your booking by email.
+      <p className="font-sans text-xs text-espresso/50">
+        We&apos;ll confirm your booking by email.
       </p>
     </form>
   );
 }
 
-function PrivateHireForm() {
+function GroupBookingForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -231,7 +196,6 @@ function PrivateHireForm() {
         from_name: String(data.get("name") ?? ""),
         from_email: String(data.get("email") ?? ""),
         phone: String(data.get("phone") ?? ""),
-        event_type: String(data.get("event_type") ?? ""),
         guest_count: String(data.get("guest_count") ?? ""),
         preferred_date: String(data.get("preferred_date") ?? ""),
         message: String(data.get("message") ?? ""),
@@ -255,26 +219,16 @@ function PrivateHireForm() {
       <Field label="Name *" name="name" required />
       <Field label="Email *" name="email" type="email" required />
       <Field label="Phone" name="phone" />
-      <div>
-        <label className="mb-1 block font-sans text-sm text-cream">Event type *</label>
-        <select name="event_type" required className={inputClass}>
-          <option value="">Select...</option>
-          <option value="Birthday">Birthday</option>
-          <option value="Corporate">Corporate</option>
-          <option value="Networking">Networking</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
       <Field label="Guest count *" name="guest_count" required />
       <Field label="Preferred date *" name="preferred_date" type="date" required min={today} />
       <div>
-        <label className="mb-1 block font-sans text-sm text-cream">Message *</label>
+        <label className="mb-1 block font-sans text-sm text-espresso">Message *</label>
         <textarea name="message" required rows={4} className={inputClass} />
       </div>
       <button
         type="submit"
         disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-6 py-3 font-sans text-sm font-semibold text-navy disabled:opacity-50"
+        className="inline-flex w-full items-center justify-center gap-2 rounded bg-brown px-6 py-3 font-sans text-sm font-semibold text-cream hover:bg-espresso disabled:opacity-50"
       >
         {loading && <Loader2 className="animate-spin" size={18} />}
         Send Enquiry
@@ -298,7 +252,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-1 block font-sans text-sm text-cream">{label}</label>
+      <label className="mb-1 block font-sans text-sm text-espresso">{label}</label>
       <input
         name={name}
         type={type}

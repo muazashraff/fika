@@ -7,36 +7,36 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden grain-overlay bg-navy">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden grain-overlay bg-espresso">
       {/* Background image */}
+      {/* TODO: Replace with real photography of the café */}
       <Image
-        src="/images/Background%202.PNG"
+        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80"
         alt=""
         fill
-        className="object-cover"
+        className="object-cover opacity-70"
         priority
         sizes="100vw"
         aria-hidden="true"
       />
-      {/* Navy overlay at 50% opacity for text readability */}
-      <div className="absolute inset-0 bg-navy/60" aria-hidden="true" />
+      <div className="absolute inset-0 bg-espresso/60" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-32 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="font-playfair text-4xl font-medium leading-tight text-gold md:text-6xl lg:text-7xl"
+          className="font-cormorant text-5xl font-medium leading-tight text-cream md:text-7xl lg:text-8xl"
         >
-          Great coffee. Great events. Greater people.
+          Bradford&apos;s most beautiful café
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="mt-6 font-lora text-lg text-cream md:text-xl"
+          className="mt-6 font-sans text-lg text-cream/80 md:text-xl"
         >
-          Bradford&apos;s favourite specialty coffee lounge.
+          Specialty coffee, matcha and bakes on Thornton Road.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -45,8 +45,8 @@ export default function Hero() {
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Button href="/menu">Explore the Menu</Button>
-          <Button href="/events" variant="outline">
-            What&apos;s On
+          <Button href="/book" variant="outline">
+            Book a Table
           </Button>
         </motion.div>
       </div>
@@ -56,7 +56,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-brown"
         aria-label="Scroll down"
       >
         <ChevronDown className="animate-bounce" size={32} />

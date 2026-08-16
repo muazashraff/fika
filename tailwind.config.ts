@@ -9,16 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "rgb(var(--navy) / <alpha-value>)",
-        gold: "rgb(var(--gold) / <alpha-value>)",
-        brown: "rgb(var(--brown) / <alpha-value>)",
         cream: "rgb(var(--cream) / <alpha-value>)",
-        "text-light": "rgb(var(--text-light) / <alpha-value>)",
-        "text-dark": "rgb(var(--text-dark) / <alpha-value>)",
+        beige: "rgb(var(--beige) / <alpha-value>)",
+        brown: "rgb(var(--brown) / <alpha-value>)",
+        espresso: "rgb(var(--espresso) / <alpha-value>)",
       },
       fontFamily: {
-        playfair: ["var(--font-playfair)", "serif"],
-        lora: ["var(--font-lora)", "serif"],
+        cormorant: ["var(--font-cormorant)", "serif"],
         sans: ["var(--font-dm-sans)", "sans-serif"],
       },
     },
