@@ -1,4 +1,5 @@
 import BotanicalDivider from "@/components/ui/BotanicalDivider";
+import DrinkQuiz from "@/components/home/DrinkQuiz";
 import ExperienceStrip from "@/components/home/ExperienceStrip";
 import FeaturedDrinks from "@/components/home/FeaturedDrinks";
 import FikaRitual from "@/components/home/FikaRitual";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <BotanicalDivider />
       <ExperienceStrip />
       <FikaRitual />
+      <DrinkQuiz />
       <FeaturedDrinks />
       <TheSpaceSection />
       <InstagramFeed />

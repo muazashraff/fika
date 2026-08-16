@@ -4,6 +4,10 @@ export interface MenuItem {
   price: string;
   category: MenuCategory;
   featured?: boolean;
+  /** Taste profile used to match this item in the "Find Your Drink" quiz. */
+  quizTag?: "strong" | "smooth" | "fresh" | "dessert";
+  /** Only needed for items whose category doesn't already imply a temperature (matcha / wellness). */
+  quizTemp?: "hot" | "iced" | "both";
 }
 
 export type MenuCategory =
@@ -25,45 +29,45 @@ export const menuCategories: { id: MenuCategory; label: string }[] = [
 
 export const menuItems: MenuItem[] = [
   // ── HOT COFFEE ───────────────────────────────────────────────────────────
-  { id: 1, name: "Espresso", price: "£2.80", category: "hot-coffee" },
-  { id: 2, name: "Americano", price: "£3.00", category: "hot-coffee" },
-  { id: 3, name: "Cortado", price: "£3.20", category: "hot-coffee" },
-  { id: 4, name: "Flat White", price: "£3.60", category: "hot-coffee" },
-  { id: 5, name: "Cappuccino", price: "£3.70", category: "hot-coffee" },
-  { id: 6, name: "Latte", price: "£3.80", category: "hot-coffee" },
-  { id: 7, name: "Mocha", price: "£4.50", category: "hot-coffee" },
-  { id: 8, name: "Spanish Latte", price: "£4.80", category: "hot-coffee" },
-  { id: 9, name: "Pistachio Latte", price: "£5.00", category: "hot-coffee", featured: true },
-  { id: 10, name: "V60", price: "£5.20", category: "hot-coffee" },
+  { id: 1, name: "Espresso", price: "£2.80", category: "hot-coffee", quizTag: "strong" },
+  { id: 2, name: "Americano", price: "£3.00", category: "hot-coffee", quizTag: "strong" },
+  { id: 3, name: "Cortado", price: "£3.20", category: "hot-coffee", quizTag: "smooth" },
+  { id: 4, name: "Flat White", price: "£3.60", category: "hot-coffee", quizTag: "smooth" },
+  { id: 5, name: "Cappuccino", price: "£3.70", category: "hot-coffee", quizTag: "smooth" },
+  { id: 6, name: "Latte", price: "£3.80", category: "hot-coffee", quizTag: "smooth" },
+  { id: 7, name: "Mocha", price: "£4.50", category: "hot-coffee", quizTag: "dessert" },
+  { id: 8, name: "Spanish Latte", price: "£4.80", category: "hot-coffee", quizTag: "dessert" },
+  { id: 9, name: "Pistachio Latte", price: "£5.00", category: "hot-coffee", featured: true, quizTag: "dessert" },
+  { id: 10, name: "V60", price: "£5.20", category: "hot-coffee", quizTag: "strong" },
 
   // ── ICED COFFEE ──────────────────────────────────────────────────────────
-  { id: 11, name: "Iced Latte", price: "£5.00", category: "iced-coffee" },
-  { id: 12, name: "Iced Pistachio Latte", price: "£5.20", category: "iced-coffee" },
-  { id: 13, name: "Iced Tiramisu Latte", price: "£5.80", category: "iced-coffee", featured: true },
-  { id: 14, name: "Iced Pour Over", price: "£6.00", category: "iced-coffee" },
-  { id: 15, name: "Freddo Espresso", price: "£4.00", category: "iced-coffee" },
-  { id: 16, name: "Freddo Cappuccino", price: "£5.00", category: "iced-coffee" },
-  { id: 17, name: "Mont Blanc Coffee", price: "£5.50", category: "iced-coffee" },
+  { id: 11, name: "Iced Latte", price: "£5.00", category: "iced-coffee", quizTag: "smooth" },
+  { id: 12, name: "Iced Pistachio Latte", price: "£5.20", category: "iced-coffee", quizTag: "dessert" },
+  { id: 13, name: "Iced Tiramisu Latte", price: "£5.80", category: "iced-coffee", featured: true, quizTag: "dessert" },
+  { id: 14, name: "Iced Pour Over", price: "£6.00", category: "iced-coffee", quizTag: "strong" },
+  { id: 15, name: "Freddo Espresso", price: "£4.00", category: "iced-coffee", quizTag: "strong" },
+  { id: 16, name: "Freddo Cappuccino", price: "£5.00", category: "iced-coffee", quizTag: "smooth" },
+  { id: 17, name: "Mont Blanc Coffee", price: "£5.50", category: "iced-coffee", quizTag: "dessert" },
 
   // ── MATCHA ───────────────────────────────────────────────────────────────
-  { id: 18, name: "Matcha Latte", price: "£4.50", category: "matcha" },
-  { id: 19, name: "Pistachio & White Chocolate Matcha", price: "£5.20", category: "matcha" },
-  { id: 20, name: "Banana Bread Matcha", price: "£5.20", category: "matcha" },
-  { id: 21, name: "Strawberry Matcha", price: "£5.20", category: "matcha" },
-  { id: 22, name: "Strawberry Coconut Matcha", price: "£5.20", category: "matcha" },
-  { id: 23, name: "Blueberry Matcha", price: "£5.20", category: "matcha" },
-  { id: 24, name: "Blueberry & White Chocolate Matcha", price: "£5.20", category: "matcha" },
-  { id: 25, name: "Matcha Blanc", price: "£5.20", category: "matcha" },
-  { id: 26, name: "Watermelon Ice Tea Matcha Spritz", price: "£5.20", category: "matcha" },
-  { id: 27, name: "Blueberry Matcha Spritz", price: "£5.20", category: "matcha" },
+  { id: 18, name: "Matcha Latte", price: "£4.50", category: "matcha", quizTag: "smooth", quizTemp: "both" },
+  { id: 19, name: "Pistachio & White Chocolate Matcha", price: "£5.20", category: "matcha", quizTag: "dessert", quizTemp: "both" },
+  { id: 20, name: "Banana Bread Matcha", price: "£5.20", category: "matcha", quizTag: "dessert", quizTemp: "both" },
+  { id: 21, name: "Strawberry Matcha", price: "£5.20", category: "matcha", quizTag: "fresh", quizTemp: "both" },
+  { id: 22, name: "Strawberry Coconut Matcha", price: "£5.20", category: "matcha", quizTag: "fresh", quizTemp: "both" },
+  { id: 23, name: "Blueberry Matcha", price: "£5.20", category: "matcha", quizTag: "fresh", quizTemp: "both" },
+  { id: 24, name: "Blueberry & White Chocolate Matcha", price: "£5.20", category: "matcha", quizTag: "dessert", quizTemp: "both" },
+  { id: 25, name: "Matcha Blanc", price: "£5.20", category: "matcha", quizTag: "smooth", quizTemp: "both" },
+  { id: 26, name: "Watermelon Ice Tea Matcha Spritz", price: "£5.20", category: "matcha", quizTag: "fresh", quizTemp: "iced" },
+  { id: 27, name: "Blueberry Matcha Spritz", price: "£5.20", category: "matcha", quizTag: "fresh", quizTemp: "iced" },
 
   // ── WELLNESS DRINKS ──────────────────────────────────────────────────────
-  { id: 28, name: "Golden Hour", price: "£5.50", category: "wellness" },
-  { id: 29, name: "The Palm", price: "£5.50", category: "wellness" },
-  { id: 30, name: "J1", price: "£5.50", category: "wellness" },
-  { id: 31, name: "Sunset Beach", price: "£5.50", category: "wellness" },
-  { id: 32, name: "Hot Chocolate", price: "£4.50", category: "wellness" },
-  { id: 33, name: "Luxury Hot Chocolate", price: "£12.00", category: "wellness", featured: true },
+  { id: 28, name: "Golden Hour", price: "£5.50", category: "wellness", quizTag: "fresh", quizTemp: "iced" },
+  { id: 29, name: "The Palm", price: "£5.50", category: "wellness", quizTag: "fresh", quizTemp: "iced" },
+  { id: 30, name: "J1", price: "£5.50", category: "wellness", quizTag: "fresh", quizTemp: "iced" },
+  { id: 31, name: "Sunset Beach", price: "£5.50", category: "wellness", quizTag: "fresh", quizTemp: "iced" },
+  { id: 32, name: "Hot Chocolate", price: "£4.50", category: "wellness", quizTag: "smooth", quizTemp: "hot" },
+  { id: 33, name: "Luxury Hot Chocolate", price: "£12.00", category: "wellness", featured: true, quizTag: "dessert", quizTemp: "hot" },
 
   // ── DESSERTS & BAKES ─────────────────────────────────────────────────────
   { id: 34, name: "Almond Croissant", price: "£4.00", category: "desserts" },
